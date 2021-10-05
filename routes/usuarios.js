@@ -43,7 +43,7 @@ route.put('/:id',
     ,actualizarUsuario
 )
 
-//Actualizar Usuario
+//Borrar Usuario
 route.delete('/:id',validarJWT,borrarUsuario)
 
 module.exports = route;
