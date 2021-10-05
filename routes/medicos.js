@@ -31,7 +31,15 @@ route.post('/',[
 );
 
 //Actualizar medicos
-route.put('/:id',[],actualizarMedico);
+route.put('/:id',[
+        validarJWT,
+        check('nombre','El nombre del medico es necesario...').not().isEmpty(),
+        check('hospital','El hospital del medico es necesario...').not().isEmpty(),
+        check('hospital','El hospital no corresponde aun ID valido...').isMongoId(),
+        validarCampos
+    ],
+    actualizarMedico
+);
 
 //Borrar medicos
 route.delete('/:id',[],borrarMedico) 

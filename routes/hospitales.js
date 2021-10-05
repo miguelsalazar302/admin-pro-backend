@@ -29,7 +29,14 @@ route.post('/',[
 );
 
 //Actualizar hospital
-route.put('/:id',[validarJWT],actualizarHospital);
+route.put('/:id',
+    [
+        validarJWT,
+        check('nombre','El nombre del hospital es necesario...').not().isEmpty(),
+        validarCampos
+    ],
+    actualizarHospital
+);
 
 //Borrar hospital
 route.delete('/:id',[validarJWT],borrarHospital) 

@@ -94,11 +94,29 @@ const googleSignIn = async ( req, res=response ) =>{
             msg:'Token no es correcto ... '
         });
     } 
-    
+}
+
+
+const renwToken = async ( req, res=response ) =>{
+
+    const uid = req.uid;
+
+    const usuario = await Usuario.findById(uid)
+
+    //Generar el TOKEN - JWT
+    const token = await generarJWT(uid )
+
+    //Respuesta
+    res.json({
+        ok:true,
+        usuario,
+        token
+    })
 
 }
 
 module.exports = {
     login,
     googleSignIn,
+    renwToken
 }
