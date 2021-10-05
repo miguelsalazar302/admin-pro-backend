@@ -28,6 +28,16 @@ const getUsuarios = async (req,res)=> {
     })
 }
 
+const getUsuariosAll = async (req,res)=> {
+    
+    const usuarios = await Usuario.find({},'nombre email img role google')
+
+    res.json({
+        ok:true,
+        usuarios:usuarios
+    })
+}
+
 const creandoUsuarios = async ( req, res=response )=> {
 
     const { email,password,nombre }= req.body;
@@ -160,6 +170,7 @@ const borrarUsuario = async ( req, res=response )=>{
 
 module.exports = {
     getUsuarios,
+    getUsuariosAll,
     creandoUsuarios,
     actualizarUsuario,
     borrarUsuario,

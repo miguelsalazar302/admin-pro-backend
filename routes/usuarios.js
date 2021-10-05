@@ -11,13 +11,17 @@ const {
     getUsuarios,
     creandoUsuarios,
     actualizarUsuario,
-    borrarUsuario 
+    borrarUsuario,
+    getUsuariosAll
 } = require('../controllers/usuarios');
 
 const route = Router()
 
 //Listar Usuarios
 route.get('/',validarJWT,getUsuarios)
+
+//Listar Usuarios todos
+route.get('/all',validarJWT,getUsuariosAll)
 
 //Registrar Usuario
 route.post('/', 
