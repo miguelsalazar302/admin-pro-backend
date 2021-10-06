@@ -25,8 +25,7 @@ route.get('/all',validarJWT,getUsuariosAll)
 
 //Registrar Usuario
 route.post('/', 
-    [
-        validarJWT,
+    [ 
         check('nombre','Es requerido nombre').not().isEmpty(),
         check('password','Es requerido password').not().isEmpty(),
         check('email','Es requerido email').isEmail(),

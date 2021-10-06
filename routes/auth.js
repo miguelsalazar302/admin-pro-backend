@@ -32,7 +32,7 @@ route.post('/google',
  
 
 //Renovar Token
-route.post('/renw', [validarJWT] , renwToken );
+route.get('/renw', [validarJWT] , renwToken );
  
 
 module.exports = route;
